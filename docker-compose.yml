@@ -1,0 +1,22 @@
+version: "3.9"
+
+networks:
+  fc-frontend-network:
+    name: forza-creations-frontend-network
+  fc-backend-network:
+    name: forza-creations-backend-network
+
+services:
+  frontend:
+    container_name: frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    build:
+      context: .
+      dockerfile: docker/development/build/frontend.Dockerfile
+    networks:
+      - fc-frontend-network
+    expose:
+      - 3000
+    restart: unless-stopped
