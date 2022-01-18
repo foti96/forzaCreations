@@ -20,6 +20,15 @@ If the submodules didn't populate them-selves run the following,
 ````
 git submodule update --init
 ````
+#### Run the Project
+Running the following command will bring up the project is in a terminal window
+````
+docker-compose up --build
+````
+If you want to run it and not view the logs, run the following instead
+````
+docker-compose up --build
+````
 #### Setting up the dev url in the hosts
 Working on the project is easier when you designate a local url to navigate to, add the following to your hosts directory.
 ````

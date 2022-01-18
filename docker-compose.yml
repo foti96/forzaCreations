@@ -7,11 +7,26 @@ networks:
     name: forza-creations-backend-network
 
 services:
+  proxy:
+    container_name: proxy
+    volumes:
+      - ./docker/development/configs/proxy.conf:/etc/nginx/conf.d/forzacreations.conf:ro
+    image: nginx
+    depends_on:
+      - frontend
+    networks:
+      - fc-frontend-network
+    ports:
+      - "8080:80"
+    environment:
+      - NGINX_PORT=80
+
   frontend:
     container_name: frontend
     working_dir: /app
     volumes:
       - ./frontend:/app
+      - /app/node_modules
     build:
       context: .
       dockerfile: docker/development/build/frontend.Dockerfile

@@ -4,8 +4,8 @@ FROM node:16.13.2-buster
 WORKDIR /app
 
 # install app dependencies
-COPY ./frontend/package.json ./
-COPY ./frontend/package-lock.json ./
+COPY ./frontend/package.json /app
+COPY ./frontend/package-lock.json /app
 RUN npm install
 
 # add app
