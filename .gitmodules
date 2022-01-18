@@ -1,0 +1,8 @@
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:foti96/forzaCreations-frontend.git
+	branch = main
+[submodule "backend"]
+	path = backend
+	url = git@github.com:foti96/forzaCreations-backend.git
+	branch = main
